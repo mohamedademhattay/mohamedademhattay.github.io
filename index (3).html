@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio de Mohamed Adem Hattay, étudiant en génie logiciel en recherche de stage PFE en IA, Machine Learning et Data Science.">
+<title>Mohamed Adem Hattay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: single left-aligned column, hero with a live signal trace, then project grid, skills, timeline. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #14243a;
+  --muted: #5a6779;
+  --line: #dde2ea;
+  --accent: #1f3a5f;
+  --signal: #d9822b;
+  --chip: #eaeef4;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1520; --surface: #152031; --ink: #e6ecf4; --muted: #9aa8bb;
+    --line: #26354b; --accent: #8fb4e6; --signal: #f0a050; --chip: #1c2a3f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1520; --surface: #152031; --ink: #e6ecf4; --muted: #9aa8bb;
+  --line: #26354b; --accent: #8fb4e6; --signal: #f0a050; --chip: #1c2a3f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+}
+.wrap {
+  max-width: 1040px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+.label {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* Hero */
+header.hero { padding-block: 64px 40px; display: grid; gap: 28px; }
+.hero h1 { font-size: clamp(38px, 7vw, 68px); font-weight: 800; line-height: 1.02; letter-spacing: -.02em; }
+.hero h1 span { color: var(--accent); }
+.role { font-family: var(--display); font-weight: 500; font-size: clamp(18px, 2.4vw, 22px); color: var(--muted); max-width: 40ch; margin: 0; }
+.pitch { max-width: 62ch; margin: 0; }
+.trace { width: 100%; height: 64px; display: block; }
+.contact { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 14px/1 var(--body); padding: 11px 16px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  text-decoration: none; cursor: pointer;
+}
+.btn.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.mail { font-family: var(--mono); font-size: 14px; user-select: all; }
+.status { font-size: 13px; color: var(--muted); min-height: 1.2em; }
+
+section { padding-block: 48px; border-top: 1px solid var(--line); }
+.sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 28px; }
+.sec-head h2 { font-size: clamp(26px, 3.4vw, 34px); font-weight: 700; }
+
+/* Filters */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter {
+  font: 500 13px/1 var(--body); padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;
+}
+.filter[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 18px; }
+.project {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
+}
+.project.featured { grid-column: 1 / -1; }
+.project .kind { display: flex; justify-content: space-between; gap: 8px; }
+.project .kind .dom { color: var(--signal); }
+.project h3 { font-size: 20px; font-weight: 700; line-height: 1.25; }
+.project p { margin: 0; color: var(--muted); }
+.project ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.tag { font-family: var(--mono); font-size: 12px; background: var(--chip); color: var(--ink); padding: 4px 8px; border-radius: 5px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px; }
+.skill-group { display: grid; gap: 10px; align-content: start; }
+.skill-group h3 { font-size: 16px; font-weight: 700; }
+
+/* Timeline */
+.timeline { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.timeline li {
+  display: grid; grid-template-columns: 130px 1fr; gap: 20px;
+  padding-block: 16px; border-bottom: 1px solid var(--line);
+}
+.timeline li:last-child { border-bottom: 0; }
+.when { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.timeline h3 { font-size: 17px; font-weight: 700; }
+.timeline p { margin: 2px 0 0; color: var(--muted); }
+
+.extras { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; }
+.extras p { margin: 6px 0 0; }
+
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+@media (max-width: 560px) {
+  .timeline li { grid-template-columns: 1fr; gap: 4px; }
+  header.hero { padding-block: 40px 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="label">Portfolio · Recherche de stage PFE</span>
+    <h1>Mohamed Adem <span>Hattay</span></h1>
+    <p class="role">Étudiant en Génie Logiciel, orienté Intelligence Artificielle, Machine Learning et Data Science</p>
+    <canvas class="trace" id="trace" aria-hidden="true"></canvas>
+    <p class="pitch">En dernière année de Licence à l'ISTIC, je construis des applications complètes autour de la donnée : API Python, bases PostgreSQL, traitement de l'audio et services IA intégrés. Je cherche un stage de fin d'études en IA, Machine Learning ou Data Science.</p>
+    <div class="contact">
+      <a class="btn primary" href="https://github.com/mohamedademhattay" target="_blank" rel="noopener">GitHub</a>
+      <button class="btn" id="copy-mail" type="button">Copier l'email</button>
+      <span class="mail" id="mail">hattayadem05@gmail.com</span>
+    </div>
+    <div class="status" id="status" role="status"></div>
+  </header>
+
+  <section id="projets" aria-labelledby="h-projets">
+    <div class="sec-head">
+      <h2 id="h-projets">Projets</h2>
+      <div class="filters" role="group" aria-label="Filtrer les projets">
+        <button class="filter" type="button" data-f="all" aria-pressed="true">Tous</button>
+        <button class="filter" type="button" data-f="ia" aria-pressed="false">IA / Data</button>
+        <button class="filter" type="button" data-f="web" aria-pressed="false">Web / Backend</button>
+        <button class="filter" type="button" data-f="iot" aria-pressed="false">IoT</button>
+      </div>
+    </div>
+    <div class="projects">
+      <article class="project featured" data-cat="ia web">
+        <div class="kind"><span class="label">Projet PFA · Solo</span><span class="label dom">IA / Data · Full-stack</span></div>
+        <h3>Application mobile e-commerce intelligente de stickers personnalisés</h3>
+        <p>Une plateforme complète conçue et développée seul, en quatre modules indépendants.</p>
+        <ul>
+          <li>Service IA/BI dédié en Python, séparé du backend principal.</li>
+          <li>API REST FastAPI sécurisée par JWT, données sur PostgreSQL avec SQLAlchemy et Alembic.</li>
+          <li>Dashboard d'administration React pour les produits, catégories, devis et commandes.</li>
+          <li>Application mobile client en Flutter, projet mené en approche MVP sur 6 semaines.</li>
+        </ul>
+        <div class="stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">React</span><span class="tag">TailwindCSS</span><span class="tag">Flutter</span><span class="tag">JWT</span></div>
+      </article>
+
+      <article class="project" data-cat="ia">
+        <div class="kind"><span class="label">Projet</span><span class="label dom">IA / Audio</span></div>
+        <h3>Indexation vocale de vidéos</h3>
+        <p>Rendre le contenu parlé d'une vidéo cherchable par mots-clés.</p>
+        <ul>
+          <li>Extraction automatique de la piste audio des vidéos.</li>
+          <li>Transcription de la parole en texte, puis indexation par mots-clés.</li>
+        </ul>
+        <div class="stack"><span class="tag">Python</span><span class="tag">Traitement audio</span><span class="tag">Speech-to-text</span></div>
+      </article>
+
+      <article class="project" data-cat="web">
+        <div class="kind"><span class="label">Projet</span><span class="label dom">Fintech · Full-stack</span></div>
+        <h3>Plateforme de trading PAMM avec marketplace d'agents</h3>
+        <p>Gestion de comptes PAMM : le capital des investisseurs est réparti entre plusieurs gestionnaires.</p>
+        <ul>
+          <li>API FastAPI : modèles PAMM, base PostgreSQL, endpoints agents.</li>
+          <li>Frontend Next.js (App Router) avec une marketplace d'agents.</li>
+          <li>Backend, frontend, PostgreSQL et Redis conteneurisés avec Docker Compose.</li>
+        </ul>
+        <div class="stack"><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
+      </article>
+
+      <article class="project" data-cat="web">
+        <div class="kind"><span class="label">Projet</span><span class="label dom">Web · Java EE</span></div>
+        <h3>Gestion de rendez-vous pour avocats</h3>
+        <p>Prise et suivi des rendez-vous entre clients et avocats.</p>
+        <ul>
+          <li>Agenda, réservations et suivi des dossiers clients.</li>
+          <li>Version Java EE avec une architecture multicouche et une base relationnelle.</li>
+        </ul>
+        <div class="stack"><span class="tag">Java EE</span><span class="tag">SQL</span><span class="tag">Web</span></div>
+      </article>
+
+      <article class="project" data-cat="iot">
+        <div class="kind"><span class="label">Projet de groupe</span><span class="label dom">IoT</span></div>
+        <h3>Arrosage automatique de plante</h3>
+        <p>Un capteur d'humidité du sol déclenche une pompe quand la terre devient trop sèche.</p>
+        <ul>
+          <li>Circuit simulé sur Tinkercad, puis monté en réel.</li>
+        </ul>
+        <div class="stack"><span class="tag">Arduino Uno</span><span class="tag">Capteurs</span><span class="tag">Tinkercad</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="competences" aria-labelledby="h-comp">
+    <div class="sec-head"><h2 id="h-comp">Compétences</h2></div>
+    <div class="skills">
+      <div class="skill-group">
+        <h3>Langages et données</h3>
+        <div class="stack"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>IA et data</h3>
+        <div class="stack"><span class="tag">Optimisation SQL</span><span class="tag">Modélisation de données</span><span class="tag">Traitement audio</span><span class="tag">Traitement d'images</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Développement</h3>
+        <div class="stack"><span class="tag">FastAPI</span><span class="tag">API REST</span><span class="tag">Java EE</span><span class="tag">Angular</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Flutter</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Outils et qualité</h3>
+        <div class="stack"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">Tests ISTQB</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours" aria-labelledby="h-parcours">
+    <div class="sec-head"><h2 id="h-parcours">Parcours</h2></div>
+    <ol class="timeline">
+      <li><span class="when">2024 – 2027</span><div><h3>Licence en Génie Logiciel et Systèmes d'Information</h3><p>ISTIC, Tunis</p></div></li>
+      <li><span class="when">Freelance</span><div><h3>Montage vidéo et traitement d'images</h3><p>Missions pour différents clients, du brief à la livraison.</p></div></li>
+      <li><span class="when">Emploi</span><div><h3>Caissier, PREGO</h3><p>Encaissement et relation client dans un environnement à fort flux.</p></div></li>
+      <li><span class="when">2024</span><div><h3>Baccalauréat Mathématiques, mention Bien</h3><p>Tunisie</p></div></li>
+    </ol>
+  </section>
+
+  <section id="plus" aria-labelledby="h-plus">
+    <div class="sec-head"><h2 id="h-plus">En dehors du code</h2></div>
+    <div class="extras">
+      <div><span class="label">Certification</span><p>ISTQB Certified Tester, Foundation Level (CTFL)</p></div>
+      <div><span class="label">Langues</span><p>Arabe (maternelle), Français (courant), Anglais (B1)</p></div>
+      <div><span class="label">Sport</span><p>Ancien joueur professionnel de football : discipline, esprit d'équipe, gestion de la pression.</p></div>
+    </div>
+  </section>
+
+  <footer>Mohamed Adem Hattay · hattayadem05@gmail.com · github.com/mohamedademhattay</footer>
+</div>
+
+<script>
+(function () {
+  // Project filters
+  var buttons = document.querySelectorAll('.filter');
+  var cards = document.querySelectorAll('.project');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.dataset.f;
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      cards.forEach(function (c) {
+        c.hidden = !(f === 'all' || c.dataset.cat.split(' ').indexOf(f) !== -1);
+      });
+    });
+  });
+
+  // Copy email
+  var status = document.getElementById('status');
+  document.getElementById('copy-mail').addEventListener('click', function () {
+    var mail = document.getElementById('mail').textContent;
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('mail'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      status.textContent = 'Email sélectionné : copiez-le avec Ctrl+C.';
+    };
+    try {
+      navigator.clipboard.writeText(mail).then(function () { status.textContent = 'Email copié.'; }, fallback);
+    } catch (e) { fallback(); }
+  });
+
+  // Signal trace: a speech-like waveform, nod to the voice indexing work
+  var cv = document.getElementById('trace');
+  var ctx = cv.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function color(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function draw(t) {
+    var dpr = window.devicePixelRatio || 1;
+    var w = cv.clientWidth, h = cv.clientHeight;
+    if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    var bars = Math.floor(w / 6), mid = h / 2;
+    for (var i = 0; i < bars; i++) {
+      var x = i * 6;
+      var env = Math.pow(Math.sin((i / bars) * Math.PI * 3 + t * 0.0004), 2) * 0.7 + 0.15;
+      var amp = env * (0.55 + 0.45 * Math.sin(i * 0.9 + t * 0.003)) * (mid - 2);
+      ctx.fillStyle = i % 9 === 0 ? color('--signal') : color('--line');
+      ctx.fillRect(x, mid - Math.abs(amp), 3, Math.abs(amp) * 2 || 1);
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  draw(0);
+  window.addEventListener('resize', function () { if (reduce) draw(0); });
+})();
+</script>
+
+</body>
+</html>

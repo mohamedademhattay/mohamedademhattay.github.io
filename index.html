@@ -98,6 +98,8 @@ section { padding-block: 48px; border-top: 1px solid var(--line); }
 .project p { margin: 0; color: var(--muted); }
 .project ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
 .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.code-link { font: 500 14px/1 var(--body); color: var(--accent); text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
+.code-link:hover { text-decoration: underline; }
 .tag { font-family: var(--mono); font-size: 12px; background: var(--chip); color: var(--ink); padding: 4px 8px; border-radius: 5px; }
 
 /* Skills */
@@ -182,24 +184,27 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
       <article class="project" data-cat="web">
         <div class="kind"><span class="label">Projet</span><span class="label dom">Fintech · Full-stack</span></div>
         <h3>Plateforme de trading PAMM avec marketplace d'agents</h3>
-        <p>Gestion de comptes PAMM : le capital des investisseurs est réparti entre plusieurs gestionnaires.</p>
+        <p>Marketplace PAMM : l'investisseur choisit un agent trader et lui confie une part de son capital.</p>
         <ul>
-          <li>API FastAPI : modèles PAMM, base PostgreSQL, endpoints agents.</li>
-          <li>Frontend Next.js (App Router) avec une marketplace d'agents.</li>
-          <li>Backend, frontend, PostgreSQL et Redis conteneurisés avec Docker Compose.</li>
+          <li>Profils d'agents avec rendement mensuel, taux de réussite, drawdown max, encours et commission.</li>
+          <li>API FastAPI asynchrone (SQLAlchemy, asyncpg) sur PostgreSQL, avec endpoints agents et données de marché.</li>
+          <li>Frontend Angular 16 : dashboard, fiche agent, profil, connexion. Services conteneurisés avec Docker Compose.</li>
         </ul>
-        <div class="stack"><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
+        <div class="stack"><span class="tag">FastAPI</span><span class="tag">Angular</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
+        <a class="code-link" href="https://github.com/mohamedademhattay/Trading-Platform" target="_blank" rel="noopener">Voir le code →</a>
       </article>
 
       <article class="project" data-cat="web">
-        <div class="kind"><span class="label">Projet</span><span class="label dom">Web · Java EE</span></div>
+        <div class="kind"><span class="label">Projet de groupe</span><span class="label dom">Web · Jakarta EE</span></div>
         <h3>Gestion de rendez-vous pour avocats</h3>
         <p>Prise et suivi des rendez-vous entre clients et avocats.</p>
         <ul>
-          <li>Agenda, réservations et suivi des dossiers clients.</li>
-          <li>Version Java EE avec une architecture multicouche et une base relationnelle.</li>
+          <li>Architecture MVC : servlets, pages JSP et services EJB.</li>
+          <li>Persistance JPA / Hibernate sur MySQL (avocats, clients, rendez-vous).</li>
+          <li>Chatbot d'aide qui répond aux questions fréquentes par mots-clés.</li>
         </ul>
-        <div class="stack"><span class="tag">Java EE</span><span class="tag">SQL</span><span class="tag">Web</span></div>
+        <div class="stack"><span class="tag">Jakarta EE</span><span class="tag">JSP</span><span class="tag">Hibernate</span><span class="tag">MySQL</span></div>
+        <a class="code-link" href="https://github.com/malekbelhadjjilani/avocatJEE" target="_blank" rel="noopener">Voir le code →</a>
       </article>
 
       <article class="project" data-cat="iot">
@@ -219,7 +224,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
     <div class="skills">
       <div class="skill-group">
         <h3>Langages et données</h3>
-        <div class="stack"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span></div>
+        <div class="stack"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Redis</span></div>
       </div>
       <div class="skill-group">
         <h3>IA et data</h3>
@@ -227,7 +232,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
       </div>
       <div class="skill-group">
         <h3>Développement</h3>
-        <div class="stack"><span class="tag">FastAPI</span><span class="tag">API REST</span><span class="tag">Java EE</span><span class="tag">Angular</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Flutter</span></div>
+        <div class="stack"><span class="tag">FastAPI</span><span class="tag">API REST</span><span class="tag">Jakarta EE</span><span class="tag">Hibernate</span><span class="tag">Angular</span><span class="tag">React</span><span class="tag">Flutter</span></div>
       </div>
       <div class="skill-group">
         <h3>Outils et qualité</h3>
